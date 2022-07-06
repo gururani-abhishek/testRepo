@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:textColor="@color/black"
+        android:text="HEIGHT"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/relLay"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/desc"
+        app:layout_constraintVertical_bias="0.834" />
+
+    <TextView
+        android:id="@+id/cyp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Complete your Profile"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Adding these details will help us better
+        understand your medical condition"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cyp" />
+
+    <RelativeLayout
+        android:id="@+id/relLay"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.kevalpatel2106.rulerpicker.RulerValuePicker
+            android:id="@+id/ruler_picker"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/white"
+            app:indicator_color="@color/black"
+            app:indicator_interval="14dp"
+            app:indicator_width="2dp"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:max_value="200"
+            app:min_value="150"
+            app:notch_color="@color/teal_700"
+            app:ruler_text_color="@color/black"
+            app:ruler_text_size="4sp" />
+
+        <TextView
+            android:id="@+id/ruler_picker_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="bottom|center"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleBTNS"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        app:selectionRequired="true"
+        app:singleSelection="true"
+        app:layout_constraintBottom_toTopOf="@+id/relLay"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:text="cm"
+            android:textSize="11sp"
+            android:textAllCaps="false"
+            android:textColor="@color/teal_700"
+            android:backgroundTint="@color/white"
+            />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:text="ft"
+            android:textAllCaps="false"
+            android:textSize="10sp"
+            android:textColor="@color/teal_700"
+            android:backgroundTint="@color/white"
+            />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="300dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent">
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_margin="16dp">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="20dp"
+               android:layout_marginTop="96dp"
+               android:text="Profile Completion"
+               android:textColor="@color/black"
+               android:textSize="15sp"
+               app:layout_constraintBottom_toTopOf="@+id/perc"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <TextView
+               android:id="@+id/perc"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="20dp"
+               android:layout_marginTop="124dp"
+               android:layout_marginBottom="37dp"
+               android:text="30%"
+               android:textColor="@color/teal_700"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               app:layout_constraintBottom_toTopOf="@+id/nextPage"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <com.google.android.material.progressindicator.LinearProgressIndicator
+               android:layout_width="300dp"
+               android:layout_height="wrap_content"
+               app:trackColor="@color/white"
+               app:indicatorColor="@color/teal_700"
+               android:progress="30"
+               android:layout_marginBottom="52dp"
+               app:layout_constraintBottom_toTopOf="@+id/nextPage"
+               app:layout_constraintLeft_toRightOf="@+id/perc"
+               app:layout_constraintRight_toRightOf="parent" />
+
+           <com.google.android.material.button.MaterialButton
+               android:id="@+id/nextPage"
+               android:layout_width="320dp"
+               android:layout_height="70dp"
+               android:layout_marginBottom="10dp"
+               android:backgroundTint="@color/teal_700"
+               android:text="Next"
+               app:cornerRadius="20dp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent" />
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+   </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
