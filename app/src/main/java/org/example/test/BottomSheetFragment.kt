@@ -40,6 +40,8 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_bottom_sheet, container, false)
+
+        //to remove the bottom sheet when okay is pressed.
         val okayBtn = view.findViewById<Button>(R.id.okay)
         okayBtn.setOnClickListener {
             dismiss()

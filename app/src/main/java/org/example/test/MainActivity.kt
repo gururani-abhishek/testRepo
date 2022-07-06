@@ -18,8 +18,12 @@ class MainActivity : AppCompatActivity() {
         val rulerPickerHolder = findViewById<TextView>(R.id.ruler_picker_holder)
         val rulerPicker = findViewById<RulerValuePicker>(R.id.ruler_picker)
 
+
+        //by default it's a cm scale
+        //calling makeCMScale function
         makeCMScale(rulerPicker, rulerPickerHolder)
 
+        //toggle group for cm/ft buttons
         toggleBTNS.addOnButtonCheckedListener { _, checkedId, isChecked ->
             if(isChecked) {
                 when(checkedId) {
@@ -29,6 +33,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //using bottom sheet fragment,
+        // that displays the bottom sheet dialog box, when "Next" is pressed.
         val nextPage = findViewById<Button>(R.id.nextPage)
         nextPage.setOnClickListener {
             val bottomSheetFragment = BottomSheetFragment()
@@ -37,14 +43,26 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //I'm using a library that provided rulerView.
+    //makeFTScale func, sets the scale to 'ft' measure
     private fun makeFTScale(rulerPicker: RulerValuePicker, rulerPickerHolder: TextView) {
+        //setMinMaxValue() fun is the library function that sets
+        //min and max of the scale, here (40, 90)
                         rulerPicker.setMinMaxValue(40,90)
+
+        //setValuePickerListener() : listener to get notified when the selected value changes.
                         rulerPicker.setValuePickerListener(object : RulerValuePickerListener {
+                            //Value changed and the user stopped scrolling the ruler.
+                            //Application can consider this value as final selected value.
                             override fun onValueChange(selectedValue: Int) {
                                 val ft = getFt(selectedValue)
                                 val inch = getInch(selectedValue)
                                 rulerPickerHolder.text = "$ft' $inch''"
                             }
+
+                            //Value changed but the user is still scrolling the ruler.
+                            //This value is not final value. Application can utilize
+                            // this value to display the current selected value.
                             override fun onIntermediateValueChange(selectedValue: Int) {
                                 val ft = getFt(selectedValue)
                                 val inch = getInch(selectedValue)
@@ -54,14 +72,16 @@ class MainActivity : AppCompatActivity() {
                         })
     }
 
+    //extracts feets from the total value
     private fun getFt(selectedValue: Int): Int {
         return selectedValue / 10
     }
-
+    //extract inches fromt he total value
     private fun getInch(selectedValue: Int): Int {
         return selectedValue % 10
     }
 
+    //makeFTScale func, sets the scale to 'cm' measure
     private fun makeCMScale(rulerPicker: RulerValuePicker, rulerPickerHolder: TextView) {
                         rulerPicker.setMinMaxValue(150, 200)
         rulerPicker.setValuePickerListener(object : RulerValuePickerListener {
